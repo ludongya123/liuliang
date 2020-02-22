@@ -1,0 +1,37 @@
+page{
+	background-color: #f4f4f4;
+}
+.edit-container{
+	background: #fff;
+}
+.edit-item{
+	padding:30rpx 30rpx 30rpx 26rpx;
+	.left-img{
+		height: 120rpx;
+		width: 120rpx;
+		border-radius: 50%;
+	}
+	.left{
+		width:120rpx; 
+		font-size:30rpx;  
+		line-height:52rpx;
+		color:#7D7D7D; 
+	}
+	.center{ 
+		flex:1;
+		font-size:30rpx;  
+		line-height:52rpx;
+		color:#999; 
+		margin-left: 40rpx;
+		&.sign{
+			@include manyEls (2);
+		}
+		&.active{
+			color:#101010;
+		}
+	}
+	.right{
+		width:30rpx;
+		height: 30rpx;
+	}
+}

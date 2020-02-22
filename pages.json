@@ -1,0 +1,73 @@
+{
+	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+		{
+			"path": "pages/index/index",
+			"style": {
+
+			}
+		}, {
+			"path": "pages/user/user",
+			"style": {}
+		}, {
+			"path": "pages/download/download",
+			"style": {}
+		}
+	    ,{
+            "path" : "pages/user/edit/edit",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/user/edit-nickname/edit-nickname",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/user/self-intru/self-intru",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/user/feed-back/feed-back",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/user/feed-status/feed-status",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/user/select-address/select-address",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/user/about/about",
+            "style" : {}
+        }
+    ],
+	"globalStyle": {
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "流量宝",
+		"navigationBarBackgroundColor": "#ffffff",
+		"backgroundColor": "#f4f4f4"
+	},
+	"tabBar": {
+		"color": "#7A7E83",
+		"selectedColor": "#3cc51f",
+		"backgroundColor": "#ffffff",
+		"list": [{
+				"pagePath": "pages/index/index",
+				"iconPath": "static/logo.png",
+				"selectedIconPath": "static/logo.png",
+				"text": "资源"
+			},
+			{
+				"pagePath": "pages/download/download",
+				"iconPath": "static/logo.png",
+				"selectedIconPath": "static/logo.png" 
+			}, {
+				"pagePath": "pages/user/user",
+				"iconPath": "static/logo.png",
+				"selectedIconPath": "static/logo.png",
+				"text": "我的"
+			}
+		]
+	}
+
+}
