@@ -1,9 +1,23 @@
-
-
 <script>
 	export default {
+		globalData: {
+			screenInfo: {} // 屏幕信息
+		},
 		onLaunch: function() {
-			console.log('App Launch')
+			let that = this
+			uni.getSystemInfo({
+				success(e) {
+					console.log(e)
+					console.log(that)
+					that.globalData.screenInfo = e
+					// let time = setInterval(() => {
+					// 	if (getApp().globalData) {
+					// 		getApp().globalData.screenInfo = e
+					// 		clearInterval(time)
+					// 	}
+					// }, 10)
+				}
+			})
 		},
 		onShow: function() {
 			console.log('App Show')

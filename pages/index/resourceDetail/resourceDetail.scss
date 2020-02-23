@@ -69,6 +69,7 @@
 
 .res-summary{
 	padding:22rpx 25rpx 0;
+	margin-bottom: 20rpx;
 	background: #fff;
 	.brand{
 		.brand-icon{
@@ -119,4 +120,88 @@
 			line-height: 46rpx;
 		}
 	}
+	.res-tags{ 
+		text{
+			margin:20rpx 20rpx 0 0;
+			width: 165rpx;
+			text-align: center;
+			border-radius: 8rpx;
+			line-height: 50rpx;
+			font-size: 24rpx;
+			color: #fff;
+			background: #FFA658;
+		}
+	}
+	.res-title{
+		padding:20rpx 0 30rpx;  
+		font-size:26rpx; 
+		line-height:36rpx;
+		color:#141414; 
+	}
+	.res-time{
+		padding: 20rpx 0;
+		.time{
+			flex:1;
+			font-size: 26rpx;
+			color: #7D7D7D;
+		}
+		.flex-start{
+			margin-left: 30rpx;
+		}
+		image{
+			width:30rpx;
+			height: 30rpx;
+		}
+		text{ 
+			line-height:37rpx;
+			font-size:26rpx;  
+			color:#7D7D7D; 
+			margin-left: 12rpx;
+		}
+	}
+	
 }
+
+.nav-bar{
+		height: 80rpx;
+		background: #fff; 
+		&.fixed{
+			position: fixed;
+			width:100%; 
+			top:0;
+			left:0;
+		}
+		text{ 
+			line-height:80rpx;
+			font-size:32rpx; 
+			font-weight:500; 
+			color:#7D7D7D; 
+			position: relative;
+			&.active{
+				color:#FF0000;
+				&::after{
+					content: "";
+					position: absolute;
+					width:50rpx;
+					height: 6rpx;
+					bottom:0;
+					left:50%;
+					margin-left: -25rpx;
+					background-color: #FF0000;
+				}
+			}
+			
+		}
+	}
+	.my-need{
+		height: 800rpx;
+		background: #007AFF;
+	}
+	.my-provide{
+		height: 1000rpx;
+		background-color: #4CD964;
+	}
+	.my-cooperate{
+		height: 1600rpx;
+		background: #3F536E;
+	}
