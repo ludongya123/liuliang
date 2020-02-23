@@ -65,4 +65,7 @@ page{
 	font-size:36rpx;  
 	color:#fff; 
 	border-radius: 16rpx;
+	&.gray{
+		background: #E5E5E5;
+	}
 }

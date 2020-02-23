@@ -1,25 +1,31 @@
 <template>
 	<view>
-		<view class="tip" @click="showa">
+		<view class="tip" >
 			有趣的个人介绍会吸引更多人脉哦~
 		</view>
 		<view class="textarea">
-			<textarea v-model="val"  placeholder="个性签名~" maxlength="100" auto-focus	/>
+			<textarea v-model="val" @input="inputVal"  placeholder="个性签名~" maxlength="100" auto-focus	/>
 			<view class="count">{{val.length}}/100</view>
 		</view>
 	</view>
 </template>
 
 <script>
+	let prevPage = null
 	export default {
 		data() {
 			return {
-				val:'ggregrger'
+				val:''
 			}
 		},
+		onLoad(opt) {
+			this.val = opt.instro || ''
+			let pages = getCurrentPages()
+			prevPage = pages[pages.length - 2]
+		},
 		methods: { 
-			showa(){
-				console.log(this.val)
+			inputVal(e){
+				prevPage.$vm.instruction = e.detail.value
 			}
 		}
 	}

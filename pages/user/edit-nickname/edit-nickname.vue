@@ -3,20 +3,45 @@
 		<view class="tip">
 			请设置2-24个字符，不包括 {{code}} 等无效字符哦~
 		</view>
-		<input type="text" v-model="nickname" placeholder="请输入昵称" placeholder-style="font-weight:400;color:#999;font-size:30rpx"/>
+		<input type="text" @input="inputNickname" :value="nickname" placeholder="请输入昵称" placeholder-style="font-weight:400;color:#999;font-size:30rpx"/>
 	</view>
 </template>
 
 <script>
+	var patrn=/[`~!@#$%^&*()_+<>?:"{},.\/;'[\]]/im;
+	let prepage = null
 	export default {
 		data() {
 			return {
 				code:'@ <> / ',
-				nickname:''
+				nickname:'',
+				page:null
 			}
 		},
+		watch:{
+			nickname(val){
+				
+			}
+		},
+		onLoad(opt) {
+			let pages = getCurrentPages()
+			prepage = pages[pages.length-2]
+			this.nickname = opt.nickname
+			// console.log(this.page )
+		},
 		methods: {
-			
+			inputNickname(e){
+				console.log(patrn.test(e.detail.value))
+				if(patrn.test(e.detail.value))  {
+					uni.showToast({
+						icon:'none',
+						mask:true,
+						title:'输入内容包含无效字符'
+					})
+				} else {
+					prepage.$vm.nickname = e.detail.value
+				} 
+			}
 		}
 	}
 </script>

@@ -1,11 +1,30 @@
 page{
 	background-color: #f4f4f4;
-}
-.edit-container{
-	background: #fff;
-}
+}  
 .edit-item{
-	padding:30rpx 30rpx 30rpx 26rpx;
+	padding:24rpx 30rpx 24rpx 26rpx;
+	background-color: #fff;
+	button[type=default]{
+		background: transparent;
+		flex:1;
+		margin-left: 40rpx;
+		padding:0;
+		line-height:52rpx;
+		color:#999;
+		font-size: 30rpx;
+		text-align: left;
+		&:after{
+			border:none;
+		}
+		&.edit-headimg{
+			line-height: 120rpx;
+			margin-left:-120rpx;
+			padding-left: 164rpx;
+		}
+		&.active{
+			color:#101010;
+		}
+	}
 	.left-img{
 		height: 120rpx;
 		width: 120rpx;
@@ -29,9 +48,23 @@ page{
 		&.active{
 			color:#101010;
 		}
+		&.edit-headimg{
+			line-height: 120rpx;
+		}
 	}
 	.right{
 		width:30rpx;
 		height: 30rpx;
 	}
+}
+.submit{
+	width:690rpx;
+	line-height:88rpx;
+	margin: 0 auto;
+	margin-top:60rpx;
+	background:#FF3333;
+	border-radius:16rpx;
+	color: #fff;
+	text-align: center;
+	font-size: 30rpx;
 }

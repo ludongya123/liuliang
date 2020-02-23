@@ -17,7 +17,7 @@
 				<image class="img" @click="chooseImg" src="/static/add.png" mode=""></image>
 			</view>
 		</view>
-		<view class="submit"  >提交</view>
+		<view class="submit"  :class="val.length>10?'':'gray'" @click="submitSuggest">提交</view>
 	</view>
 </template>
 
@@ -55,6 +55,17 @@
 					urls:[this.imgs[index]],
 					current:this.imgs[index]
 				})
+			},
+			// 提交建议
+			submitSuggest(){
+				if(val.trim().length>10) {
+					
+				} else {
+					uni.showToast({
+						icon:'none',
+						title:'请输入字符长度大于10'
+					})
+				}
 			}
 		}
 	}

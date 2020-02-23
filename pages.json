@@ -40,6 +40,10 @@
             "path" : "pages/user/about/about",
             "style" : {}
         }
+        ,{
+            "path" : "pages/index/resourceDetail/resourceDetail",
+            "style" : {}
+        }
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
