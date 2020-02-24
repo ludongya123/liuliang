@@ -20,15 +20,15 @@
 		</view>
 
 		<view class="banner">
-			<swiper class="banner-swiper" circular :current="currentBannerSwpier" @change="changeBannerSwiper" :autoplay="true"
+			<swiper class="banner-swiper" circular indicator-color="rgba(255,255,255,0.5)" indicator-active-color="#fff"
+		 :autoplay="true" :indicator-dots="true" @change="changeBannerSwiper"
 			 :interval="5000" :duration="1000">
 				<swiper-item v-for="(item,indx) in banner" :key="indx">
 					<view class="swiper-item">
 						<image src="http://a3.att.hudong.com/68/61/300000839764127060614318218_950.jpg" mode="aspectFill"></image>
 					</view>
 				</swiper-item>
-			</swiper>
-			<v-dot class="banner-dot" :len="banner.length" :active="currentBannerSwpier"></v-dot>
+			</swiper> 
 		</view>
 
 		<v-filter  

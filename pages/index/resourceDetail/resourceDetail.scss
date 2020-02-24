@@ -1,5 +1,6 @@
 .detail-cont{
 	padding-top: 20rpx;
+	padding-bottom: 200rpx;
 }
 .title-bar{
 	padding: 30rpx 25rpx;
@@ -170,6 +171,7 @@
 			width:100%; 
 			top:0;
 			left:0;
+			z-index: 10;
 		}
 		text{ 
 			line-height:80rpx;
@@ -193,15 +195,302 @@
 			
 		}
 	}
-	.my-need{
-		height: 800rpx;
-		background: #007AFF;
-	}
+	.my-need,.my-provide,.my-cooperate{
+		padding:30rpx 25rpx 40rpx;
+		margin-top: 20rpx;
+		background-color: #fff;
+		.title-panel {
+			width:700rpx; 
+			background:rgba(255,29,18,0.1); 
+			border-radius:8rpx; 
+			line-height:60rpx;
+			font-size:34rpx; 
+			font-weight:bold; 
+			color:#FF0000; 
+			padding-left: 20rpx;
+			position: relative;
+			&:before{
+				position: absolute;
+				content: '';
+				width:6rpx;
+				height: 26rpx;
+				background: #FF0000;
+				left:10rpx;
+				top:20rpx;
+			}
+		}
+		.group-item{
+			margin-top:30rpx;
+			.sub-title{
+				line-height:30rpx;
+				font-size:30rpx; 
+				font-weight:500; 
+				color:#191919; 
+			}
+			// 投放预算，每日倒量
+			&.budget,&.input-count{
+				.budget-content,.input-count-content{
+					margin-top: 20rpx;
+					.min-val,.max-val{
+						width:300rpx;
+						text-align:center;
+						line-height:70rpx;
+						background:#FF1D12; 
+						border-radius:10rpx;  
+						font-size:30rpx; 
+						font-weight:400; 
+						color: #fff; 
+					}
+					text{
+						color: #707070;
+					}
+					&.myprovide{
+						.min-val,.max-val{
+							background: #1DBC62;
+						} 
+					}
+				} 
+			}
+			// 行业地区 ，资源类型,广告位置，结算方式，付费方式，渠道测试
+			&.industry-area,&.resource-type,&.ad,&.settle-accounts,&.payment,&.channel-test{
+				.industry,.area,.resource-type-content,.ad-content,.settle-accounts-content,.payment-content,.channel-test-content{
+					flex-wrap: wrap;
+					text{
+						width:220rpx;
+						padding:20rpx 0;
+						line-height:30rpx;
+						background:#F4F4F4; 
+						border-radius:10rpx;
+						text-align: center;
+						&:nth-child(3n-1){
+							margin:20rpx 20rpx 0 20rpx;
+						}
+						margin-top:20rpx;
+						font-size: 30rpx;
+						color: #7D7D7D;
+					}
+				}
+				.ad-content{
+					text{
+						background: #1DBC62;
+						color:#fff;
+					} 
+				}
+				.channel-test-content{
+					text{
+						background: #0080FF;
+						color:#fff;
+					}
+				}
+			}
+			// 换量比例
+			&.exchange {
+				.exchange-content{
+					margin-top:20rpx;
+					image{
+						width:32rpx;
+						height: 32rpx;
+					}
+					text{
+						font-size: 50rpx;
+						color: #191919;
+						font-weight: 500;
+					}
+					.left,.right{
+						height: 64rpx;
+						width: 300rpx;
+						background: #FF1D12;
+						border-radius: 10rpx; 
+						.target{
+							flex:1;
+							font-size:30rpx;   
+							color:#fff; 
+						}
+					}
+					.left{
+						padding:3rpx 3rpx 3rpx 20rpx;
+						.target{
+							margin-left: 10rpx;
+						}
+					}
+					.right{
+						padding:3rpx 20rpx 3rpx 3rpx;
+						.target{
+							text-align: right;
+							margin-right: 10rpx;
+						}
+					}
+					
+					.number{
+						width:130rpx;
+						line-height:58rpx;
+						background: #fff; 
+						border-radius:10rpx;
+						text-align: center;
+						color: #141414;
+						font-size: 30rpx;
+					}
+				} 
+			}
+			// 用户画像
+			&.user-portrait{ 
+				.user-portrait-content{
+					margin-top: 30rpx;
+					.girl,.boy{
+						width:340rpx;
+						height: 122rpx;
+						border-radius: 10rpx;
+						text{
+							font-size: 30rpx;
+							color:#7D7D7D;
+						}
+						.sex-img{
+							width:100rpx;
+							height: 100rpx;
+							margin-top: 34rpx;
+						}
+						.sex-icon{
+							width: 50rpx;
+							height: 50rpx;
+						}
+					} 
+					.girl{
+						background: #FEF0F5;
+						.sex-img{
+							margin-left:40rpx;
+							margin-right: 60rpx;
+						}
+					}
+					.boy{
+						background-color: #F2F8FF;
+						.sex-img{
+							margin-left:60rpx;
+							margin-right:30rpx ;
+						}
+					}
+				}
+				.age{
+					margin-top:20rpx;
+					text{
+						color: #707070;
+					}
+					.age-val{
+						width:300rpx;
+						text-align: center;
+						line-height: 70rpx;
+						background: #F4F4F4;
+						color: #999999;
+						font-size: 30rpx; 
+					}
+				}
+				.colony{
+					flex-wrap: wrap;
+					text{
+						width:220rpx;
+						color: #868686;
+						background: #f4f4f4;
+						padding: 20rpx 0;
+						font-size: 30rpx;
+						line-height: 30rpx;
+						text-align: center;
+						&:nth-child(3n-1) {
+							margin: 20rpx 20rpx 0 20rpx;
+						}
+						margin-top:20rpx;
+					}
+				}
+			}
+			// 详细描述
+			&.resource-detail{
+				.detail-content{
+					height: 280rpx;
+					margin-top: 20rpx;
+					background: #f4f4f4;
+					font-size: 26rpx;
+					color: #141414;
+					padding:30rpx 20rpx;
+					overflow-y: scroll;
+					border-radius: 10rpx;
+				}
+			}
+			// 产品体验
+			&.product-experience{
+				.product-experience-content{
+					height: 284rpx;
+					text-align: center;
+					border-radius: 10rpx;
+					margin-top: 20rpx;
+					background: #f4f4f4;
+					padding-top: 30rpx;
+					image{
+						width:180rpx;
+						height: 180rpx; 
+					}
+					.tip{ 
+						font-size:26rpx;  
+						line-height:36rpx;
+						color:#141414; 
+						margin-top: 15rpx;
+					}
+				}
+			}
+		}
+		
+	} 
 	.my-provide{
-		height: 1000rpx;
-		background-color: #4CD964;
+		.title-panel{
+			background-color:#E9F7F0 ;
+			color: #1DBC62;
+			&:before{
+				background-color:  #1DBC62;
+			}
+		}
 	}
-	.my-cooperate{
-		height: 1600rpx;
-		background: #3F536E;
+	.my-cooperate{ 
+		.title-panel{
+			background-color:#E6F2FF ;
+			color: #0080FF;
+			&:before{
+				background-color:  #0080FF;
+			}
+		}
+	}
+	
+	
+	.footer{
+		padding:20rpx 25rpx;
+		background-color: #fff;
+		position: fixed;
+		width:750rpx;
+		left:0;
+		bottom: 0;
+		z-index: 10;
+		image{
+			width:40rpx;
+			height: 40rpx; 
+		}
+		.notice,.sc,.zan{ 
+			flex:1;
+			.count{  
+				font-size:24rpx; 
+				line-height:33rpx;
+				color:#141414; 
+			}
+		}
+		.sc{
+			margin:0 50rpx;
+		}
+		.btn{ 
+			height: 80rpx;
+			width: 350rpx;
+			border-radius: 14rpx;
+			background-color: #FF1D12;
+			text{  
+				font-size:30rpx; 
+				font-weight:bold;
+				line-height:80rpx;
+				color:#fff; 
+				margin-left: 12rpx;
+			}
+		}
 	}
