@@ -1,0 +1,103 @@
+.search-cont{
+	padding-top: 112rpx;
+}
+.search-bar{
+	position: fixed;
+	width:750rpx;
+	height: 112rpx;
+	top:0;
+	z-index:10;
+	padding: 30rpx 25rpx 12rpx;
+	background-color: #fff;
+	.search-left{
+		background-color: #F4F4F4;
+		border-radius: 16rpx;
+		flex:1;
+		padding:0 18rpx 0 25rpx;
+		image{
+			width:30rpx;
+			height: 30rpx;
+		}
+		.input{
+			height: 70rpx;
+			flex:1;
+			margin-left: 15rpx; 
+			font-size:30rpx;  
+			line-height:36rpx;
+			color:#141414; 
+		}
+	}
+	.cancel{ 
+		font-size:30rpx;
+		margin-left: 35rpx; 
+		line-height:36rpx;
+		color:#7D7D7D;
+		opacity:1;
+	}
+}
+
+.history{
+	padding:18rpx 25rpx 30rpx;
+	background-color: #fff;
+	margin-bottom: 10rpx;
+	.title{
+		text{ 
+			font-size:26rpx; 
+			line-height:36rpx;
+			color:#141414; 
+		}
+		image{
+			width: 32rpx;
+			height: 32rpx;
+			display: block;
+		}
+	}
+	.record{
+		flex-wrap: wrap;
+		text{
+			margin-top:20rpx;
+			margin-right: 25rpx;
+			border:1rpx solid #B2B2B2;
+			
+			padding: 11rpx 28rpx; 
+			font-size:26rpx; 
+			line-height:36rpx;
+			color:#141414; 
+			border-radius: 35rpx;
+		}
+	}
+}
+
+.hot{
+	padding: 25rpx 25rpx 22rpx;
+	background-color: #fff;
+	margin-bottom: 10rpx;
+	.title{ 
+		font-size: 26rpx; 
+		line-height: 36rpx;
+		color: #141414; 
+	}
+	.hot-group{
+		flex-wrap: wrap;
+		margin-top: 15rpx;
+		.hot-item{
+			width: 350rpx;
+			padding:18rpx 0;
+			.order{
+				line-height: 36rpx;
+				width:36rpx;
+				font-size: 26rpx;
+				text-align: center;
+				border-radius: 4rpx;
+				background-color: #FADF74;
+				margin-right: 20rpx;
+				color: #7D7D7D;
+			}
+			.hot-kw{ 
+				font-size:26rpx; 
+				line-height:36rpx;
+				color:#141414; 
+			}
+		}
+	}
+}

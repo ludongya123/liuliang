@@ -4,7 +4,7 @@ page{
 view,text,input,scroll-view,cover-view{
   box-sizing: border-box;  
 	line-height: 1;
-	font-family:PingFangSC-Regular;
+	font-family:PingFang SC; 
 	font-weight: 400; 
 }
 .flex-start{

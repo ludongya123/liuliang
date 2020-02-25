@@ -1,0 +1,216 @@
+.share{
+		position: fixed; 
+		right:0;
+		top:40rpx;
+		z-index: 10;
+		height:60rpx;
+		padding: 0 14rpx 0 22rpx;
+		background:rgba(255,255,255,1);
+		box-shadow:0  0  10rpx rgba(0,0,0,0.16); 
+		border-radius:31rpx 0 0 31rpx;
+		background-color: #fff;
+		&:after{
+			bordeR:none;
+		}
+		.share-icon{
+			width: 30rpx;
+			height: 30rpx;  
+		}
+		.share-text{ 
+			margin-left:10rpx;
+			font-size:30rpx; 
+			line-height: 60rpx;
+			color:rgba(255,29,18,1);  
+		}
+	}
+
+
+.banner{
+	position: relative;
+	.banner-img{
+		width:100%;
+		height: 360rpx;
+		display: block;
+	}
+	.compony-info {
+		position: absolute;
+		width:700rpx;
+		height: 200rpx;
+		border-radius: 16rpx;
+		background: #fff;
+		left:25rpx;
+		top:256rpx;
+		padding: 38rpx 25rpx;
+		.comp-logo{
+			width: 120rpx;
+			height: 120rpx;
+			margin-right: 30rpx;
+		}
+		.comp-title { 
+			.comp-name{  
+				font-size:40rpx; 
+				font-weight:bold;
+				line-height:56rpx;
+				color:#333; 
+			}
+			.hz{
+				padding:0 12rpx;
+				height: 40rpx;
+				margin: 0 20rpx 0 12rpx;
+				border-radius: 20rpx;
+				background-color: #FF594B;
+				.hz-icon{
+					width: 32rpx;
+					height: 32rpx;
+				}
+				text{  
+					font-size:28rpx; 
+					line-height:28rpx;
+					color:#fff; 
+				}
+			}
+			.help{
+				position: relative;
+				image{
+					width: 34rpx;
+					height: 34rpx;
+					display: block;
+					padding: 10rpx;
+				}
+				.point-out{
+					position: absolute; 
+					width: 250rpx;
+					font-size:20rpx; 
+					line-height:60rpx;
+					color:#fff; 
+					text-align: center;
+					border-radius: 16rpx;
+					background:rgba(51,51,51,0.6);
+					box-shadow:0 3rpx 10rpx rgba(0,0,0,0.1);
+					margin-left:-100rpx;
+					top:55rpx;
+					&:before{
+						content: '';
+						position: absolute;
+						width:0;
+						height: 0; 
+						border: 10rpx solid transparent;
+						border-bottom-color:  rgba(51,51,51,0.6);
+						top:-20rpx;
+						left:50%;
+						margin-left: -5rpx;
+						
+					}
+				}
+				
+			}
+			.tip{
+				margin-top: 8rpx;
+				image{
+					width: 30rpx;
+					height: 30rpx;
+					margin-right: 10rpx;
+					display: block;
+				}
+				text{ ;
+					font-size:26rpx; 
+					line-height:37rpx;
+					color:#7d7d7d; 
+				}
+			}
+		}
+	}
+}
+
+.nav-bar{
+	width:750rpx;
+	height: 100rpx;
+	border-bottom: 1rpx solid #EBEBEB;
+	background-color: #fff;
+	margin-top:127rpx;
+	.left,.right{
+		text{ 
+			display: block;
+			padding: 0 18rpx;
+			font-size:30rpx; 
+			line-height:60rpx;
+			border-radius: 30rpx;
+			color:#7D7D7D; 
+			&.active{
+				background-color: #FF594B;
+				color:#fff;
+			}
+		}
+	}
+	.left{
+		margin-right: 78rpx;
+	}
+}
+
+.friend-list{
+	background: #fff;
+	padding: 0 33rpx 0 25rpx;
+	.list-item{ 
+		.list-item-img{
+			width: 100rpx;
+			height: 100rpx;
+			border-radius: 50%;
+			display: block;
+			margin-right: 10rpx;
+		}
+		.list-item-right{
+			flex:1;
+			.user-info{
+				padding: 40rpx 0;
+				.user-info-content{
+					.nickname{ 
+						font-size:36rpx; 
+						line-height:36rpx;
+						color:#1A1A1A; 
+					}
+					.vip-icon{
+						width: 32rpx;
+						height: 32rpx;
+						margin-left: 16rpx;
+					}
+					.tip{  
+						margin-top: 15rpx;
+						font-size:26rpx; 
+						line-height:37rpx;
+						color:#999; 
+					}
+				}
+				.focus{
+					height: 70rpx;
+					padding: 0 24rpx;
+					background-color: #F4F4F4;
+					border-radius: 35rpx;
+					
+					image{
+						width:30rpx;
+						height: 30rpx;
+						display: block;
+					}
+					text{ 
+						font-size:26rpx; 
+						line-height:26rpx;
+						color:#141414; 
+					}
+					&.ok{
+						border:1rpx solid #FF1D12;
+						background-color: #fff;
+						text{
+							color: #FF1D12;
+						}
+					}
+					&.add-s{
+						background-color: #FF1D12;
+						text{
+							color: #fff;
+						}
+					}
+				}
+			}  
+		}
+	}
+}

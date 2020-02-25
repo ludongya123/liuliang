@@ -446,5 +446,5 @@
 </script>
 
 <style lang="scss">
-	@import './resourceDetail.scss'
+	@import './resource-detail.scss'
 </style>

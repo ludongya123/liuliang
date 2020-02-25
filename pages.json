@@ -41,7 +41,15 @@
             "style" : {}
         }
         ,{
-            "path" : "pages/index/resourceDetail/resourceDetail",
+            "path" : "pages/index/resource-detail/resource-detail",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/index/company-detail/company-detail",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/index/search/search",
             "style" : {}
         }
     ],
