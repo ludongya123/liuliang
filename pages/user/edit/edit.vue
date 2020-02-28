@@ -1,7 +1,7 @@
 <template>
 	<view class="edit-container">
 		<view class="flex-start edit-item ">
-			<image class="left-img" src="/static/logo.png" @click="chooseHeadImg"></image>
+			<image class="left-img" src="/static/user-icon.png" @click="chooseHeadImg"></image>
 			<text class="center edit-headimg" @click="chooseHeadImg" v-show="isAuthUserInfo">修改头像</text>
 			<button type="default" class="edit-headimg" v-show="!isAuthUserInfo" open-type="getUserInfo" @getuserinfo="getUserInfo($event,1)">修改头像</button>
 			<image class="right" src="/static/arrow-r.png"></image>
@@ -44,7 +44,7 @@
 </template>
 
 <script>
-	import ActionSheet from '@/components/ActionSheet/index.vue'
+	import ActionSheet from '@/components/SelectSheet/index.vue'
 	export default {
 		components: {
 			ActionSheet

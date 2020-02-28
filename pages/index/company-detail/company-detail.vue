@@ -4,6 +4,7 @@
 			<image class="share-icon" src="/static/share.png" ></image>
 			<text class="share-text">分享</text>
 		</button>
+		<view class="gap" v-show="isNavFixed"> </view>
 		<view class="banner">
 			<image class="banner-img" src="http://a3.att.hudong.com/68/61/300000839764127060614318218_950.jpg" mode="aspectFill"></image>
 			<view class="compony-info flex-start">
@@ -29,7 +30,7 @@
 				</view>
 			</view>
 		</view>
-		<view class="nav-bar flex-center">
+		<view class="nav-bar flex-center" :class="isNavFixed?'fixed':''">
 			<view class="left">
 				<text class="active">资源（6）</text>
 			</view>
@@ -38,7 +39,7 @@
 			</view>
 		</view>
 		<view class="friend-list">
-			<view class="list-item flex-start" v-for="item in 3">
+			<view class="list-item flex-start" v-for="item in 10">
 				<image class="list-item-img" src="/static/logo.png" mode="aspectFill"></image>
 				<view class="list-item-right">
 					<view class="user-info flex-between">
@@ -51,11 +52,11 @@
 								商务总监·3分钟前活跃
 							</view>
 						</view> 
-						<view class="focus flex-start" :class="item==1?'ok':item==2?'add-s':''">
+						<view class="focus flex-center" :class="item==1?'ok':item==2?'add-s':''">
 							<image  src="/static/hx.png" v-if="item==0"></image>
-							<image src="/static/ok.png" v-if="item==1"></image>
+							<image src="/static/ok-s.png" v-if="item==1"></image>
 							<image src="/static/add-s.png" v-if="item==2"></image>
-							<text>互相关注</text>
+							<text>{{item==0?'互相关注':item==1?'已关注':'关注'}}</text>
 						</view>
 					</view>
 					<view class="xiline"> </view>
@@ -66,11 +67,22 @@
 </template>
 
 <script>
+	let APP = getApp()
+	let winWidth = APP.globalData.screenInfo.screenWidth
+	let tabHeight = (460*winWidth) / 750 // tabbar距离顶部的距离
 	export default {
 		data() {
 			return {
-				isshowTip:false
+				isshowTip:false,
+				isNavFixed:false // tabbar是否吸顶
 			};
+		},
+		onPageScroll(e) {
+			if(e.scrollTop >= tabHeight) {
+				this.isNavFixed = this.isNavFixed || true
+			} else {
+				this.isNavFixed = this.isNavFixed && false
+			}
 		},
 		methods:{
 			showTip(){

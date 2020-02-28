@@ -57,8 +57,7 @@
 		text{
 			margin-top:20rpx;
 			margin-right: 25rpx;
-			border:1rpx solid #B2B2B2;
-			
+			border:1rpx solid #B2B2B2; 
 			padding: 11rpx 28rpx; 
 			font-size:26rpx; 
 			line-height:36rpx;
@@ -99,5 +98,25 @@
 				color:#141414; 
 			}
 		}
+	}
+}
+
+.search-layer{
+	position: fixed;
+	width:100%;
+	height: calc(100vh - 112rpx);
+	z-index: 100;
+	top:112rpx;
+	left:0;
+	background-color: #fff;
+	overflow-y: scroll;
+	padding: 0 25rpx;
+	.search-item{
+		.search-res{  
+			font-size:30rpx;   
+			color:#7D7D7D; 
+			padding:30rpx 0;
+			line-height: 42rpx;
+		} 
 	}
 }

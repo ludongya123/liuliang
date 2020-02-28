@@ -1,6 +1,6 @@
 <template>
 	<view class="container">
-		<view class="top-bar">
+		<view class="top-bar" v-show="!isFilterFixed">
 			<view class="navbar-header flex-start">
 				<view class="all" :class="activeTag=='all'?'active':''" @click="chooseItem('all')">
 					全部
@@ -15,11 +15,12 @@
 				<view class="more" :class="activeTag=='more'?'active':''" @click="chooseItem('more')">
 					更多
 				</view>
+				<image @click="toSearchPage" class="search-icon" src="/static/search-index.png"></image>
 			</view>
 			<view class="line" :style="{left: leftRpx+'rpx'}"></view>
 		</view>
 
-		<view class="banner">
+		<view class="banner" v-show="!isFilterFixed">
 			<swiper class="banner-swiper" circular indicator-color="rgba(255,255,255,0.5)" indicator-active-color="#fff"
 		 :autoplay="true" :indicator-dots="true" @change="changeBannerSwiper"
 			 :interval="5000" :duration="1000">
@@ -30,18 +31,40 @@
 				</swiper-item>
 			</swiper> 
 		</view>
-
-		<v-filter  
+		<!-- 精选资源 -->
+		<view class="carefull-choose-title flex-between">
+			<view class="flex-start">
+				<text class="left-title">精选资源</text>
+				<text class="hot-icon">hot</text>
+			</view>
+			<view class="flex-start">
+				<text class="more">更多</text>
+				<image class="arrow-r" src="/static/arrow-r.png"></image>
+			</view>
+		</view>
+		<!-- <cart-item mold="t"></cart-item> -->
+		
+		<view class="cooperate-title" id="cooperate-title" :class="isFilterFixed?'fixed':''">
+			合作信息
+		</view>
+		
+		<v-order  
 			:currentId="id"
+			@showFilter="showFilter"
+			@filterFixed="setFilterBarFixed"
+			@filterFlow="setFilterBarFlow"
 			@switchTypeOrder="changeTypeOrder"
 			@switchUpdateOrder="changeUpdateOrder"
 			@switchDayWorkOrder="changeDayWorkOrder"
 			@switchRegisteOrder="changeRegisteOrder"
+		></v-order>
+		<v-filter 
+		:isShow="isShowFilter"
+		@hideFilter="hideFilter"
 		></v-filter>
-
-		<cart-item></cart-item>
-		<cart-item mold="t"></cart-item>
-		<swiper circular class="swiper-content" @change="changeContentSwiper" :current="currentSwiperContent">
+		<cart-item @todetail="toResDetail"></cart-item>
+		
+		<!-- <swiper circular class="swiper-content" @change="changeContentSwiper" :current="currentSwiperContent">
 			<swiper-item>
 				<view class="swiper-item">全部</view>
 			</swiper-item>
@@ -64,10 +87,10 @@
 				<view class="swiper-item">6</view>
 			</swiper-item>
 
-		</swiper>
+		</swiper> -->
 
 		<toast></toast>
-		<button type="primary" @click="hClick()">dianji</button>
+		<button type="primary" @click="hClick()">dianji</button> 
 	</view>
 </template>
 
@@ -77,15 +100,23 @@
 	} from "@/api/index.js"
 	import CartItem from "@/components/CarItem/index.vue"
 	import Dot from "@/components/Dot/index.vue"
-	import Filter from "@/components/Filter/index.vue"
+	import Order from "@/components/Order/index.vue"
+	import Filter from '@/components/Filter/index.vue'
+	let APP = getApp()
+	let winWidth = APP.globalData.screenInfo.screenWidth
+	let resourceTop = (110*winWidth) / 750
+	
 	export default {
 		components: {
 			'cart-item': CartItem,
 			'v-dot': Dot,
-			'v-filter': Filter
+			'v-order': Order,
+			'v-filter':Filter
 		},
 		data() {
 			return {
+				isShowFilter:false,
+				isFilterFixed:false, // 筛选条是否固定
 				banner: ['1', 2, 3, 4],
 				// typeOrder: 0, //类型排序 默认综合
 				// typeOrderList: ['综合', '线上', '线下', '跨界'], //排序方式
@@ -94,14 +125,29 @@
 				currentBannerSwpier: 0,
 				activeTag: 'all',
 				options: ['我的1', '资源2', '大厅3', '我的4', '资源5', '资源6'],
-				leftRpx: 25,
+				leftRpx: 42,
 				currentSwiper: 0,
 				id:'',
-				currentSwiperContent: 0
+				currentSwiperContent: 0,
+				allResourceTop:0// 合作资源距离顶部的高度
 			}
 		},
+		
 		onLoad() {
 
+		},
+		onReady() {
+			const query = uni.createSelectorQuery().in(this);
+			query.select('#res-group').boundingClientRect(data => {
+				this.allResourceTop = data.top 
+			}).exec();
+		},
+		onPageScroll(e) {
+			if(e.scrollTop >= this.allResourceTop - resourceTop) {
+				
+			} else {
+				
+			}
 		},
 		methods: {
 			chooseItem(n) {
@@ -120,31 +166,31 @@
 				}
 				switch (n) {
 					case 0:
-						this.leftRpx = 130;
+						this.leftRpx = 147;
 						this.currentSwiper = 0;
 						break;
 					case 1:
 						this.currentSwiper = 0;
-						this.leftRpx = 250;
+						this.leftRpx = 267;
 						break;
 					case navLen - 1:
-						this.leftRpx = 370;
+						this.leftRpx = 387;
 						break;
 					case 'more':
-						this.leftRpx = 485;
+						this.leftRpx = 502;
 						break;
 					case 'all':
-						this.leftRpx = 25;
+						this.leftRpx = 42;
 						break;
 					default:
-						this.leftRpx = 250;
+						this.leftRpx = 267;
 				}
 			},
 			// 滑动导航的操作
 			changeNavSwiper(e) {
 				this.currentSwiper = e.detail.current
-				if (this.leftRpx > 25 && this.leftRpx < 485) {
-					let nIndex = (this.leftRpx - 130) / 120
+				if (this.leftRpx > 42 && this.leftRpx < 502) {
+					let nIndex = (this.leftRpx - 147) / 120
 					// 当前所在的下标
 					let currentActive = this.currentSwiper + nIndex //
 					console.log(currentActive)
@@ -163,7 +209,26 @@
 					this.chooseItem('all')
 				}
 			},
-
+			/**
+			 * 显示筛选弹层
+			 */
+			showFilter(){
+				this.isShowFilter = true
+			},
+			/**
+			 * 隐藏筛选弹层
+			 */
+			hideFilter(){
+				this.isShowFilter = false
+			},
+			// 筛选条固定
+			setFilterBarFixed(){
+				this.isFilterFixed = true 
+			},
+			// 筛选条不固定
+			setFilterBarFlow(){
+				this.isFilterFixed = false
+			},
 			// 滑动banner
 			changeBannerSwiper(e) {
 				this.currentBannerSwpier = e.detail.current
@@ -180,7 +245,18 @@
 			changeUpdateOrder(data){
 				console.log(data)
 			},
-			
+			//跳转到详情
+			toResDetail(){
+				uni.navigateTo({
+					url:'/pages/index/resource-detail/resource-detail'
+				})
+			},
+			// 跳转到搜索
+			toSearchPage(){
+				uni.navigateTo({
+					url:'/pages/index/search/search'
+				})
+			},
 			hClick() {
 				uni.pageScrollTo({
 					duration: 500,

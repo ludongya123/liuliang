@@ -2,7 +2,7 @@
 		position: fixed; 
 		right:0;
 		top:40rpx;
-		z-index: 10;
+		z-index: 11;
 		height:60rpx;
 		padding: 0 14rpx 0 22rpx;
 		background:rgba(255,255,255,1);
@@ -24,7 +24,15 @@
 		}
 	}
 
-
+.gap{
+	width: 750rpx;
+	height: 20rpx;
+	background-color: #f4f4f4;
+	position: fixed;
+	z-index: 1;
+	top:0;
+	left: 0;
+}
 .banner{
 	position: relative;
 	.banner-img{
@@ -39,7 +47,7 @@
 		border-radius: 16rpx;
 		background: #fff;
 		left:25rpx;
-		top:256rpx;
+		top:250rpx;
 		padding: 38rpx 25rpx;
 		.comp-logo{
 			width: 120rpx;
@@ -127,7 +135,14 @@
 	height: 100rpx;
 	border-bottom: 1rpx solid #EBEBEB;
 	background-color: #fff;
-	margin-top:127rpx;
+	margin-top:120rpx;
+	&.fixed{
+		position: fixed;
+		top:20rpx;
+		left:0; 
+		z-index: 10;
+		margin-top: 0;
+	}
 	.left,.right{
 		text{ 
 			display: block;
@@ -181,15 +196,15 @@
 					}
 				}
 				.focus{
-					height: 70rpx;
-					padding: 0 24rpx;
+					height: 70rpx; 
 					background-color: #F4F4F4;
 					border-radius: 35rpx;
-					
+					width: 180rpx;
 					image{
-						width:30rpx;
-						height: 30rpx;
+						width:26rpx;
+						height: 26rpx;
 						display: block;
+						margin-right: 10rpx;
 					}
 					text{ 
 						font-size:26rpx; 

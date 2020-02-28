@@ -11,7 +11,7 @@
 			
 			<view class="head">
 				<view class="flex-start">
-					<image class="user-img" src="/static/logo.png" ></image>
+					<image class="user-img" src="/static/logo-icon.png" ></image>
 					<view class="user-info">
 						<view class="user-name">
 							132****3669
@@ -28,19 +28,19 @@
 			</view>
 			<view class="user-setting flex-start">
 				<view class="flex-center">
-					<image class="user-setting-icon" src="/static/logo.png" ></image>
+					<image class="user-setting-icon" src="/static/sex12.png" ></image>
 					<text>性别</text>
 				</view>
 				<view class=" flex-center">
-					<image class="user-setting-icon" src="/static/logo.png" ></image>
+					<image class="user-setting-icon" src="/static/location-g.png" ></image>
 					<text>所在城市</text>
 				</view>
 				<view class="flex-center">
-					<image class="user-setting-icon" src="/static/logo.png" ></image>
+					<image class="user-setting-icon" src="/static/brand.png" ></image>
 					<text>我的品牌</text>
 				</view>
 				<view class="flex-center">
-					<image class="user-setting-icon" src="/static/logo.png" ></image>
+					<image class="user-setting-icon" src="/static/job.png" ></image>
 					<text>身份头衔</text>
 				</view>
 			</view>
@@ -103,10 +103,10 @@
 			return {
 				showDownLoad:true,
 				menu:[
-					{text:'编辑资料',icon:'/static/logo.png',url:'/pages/user/edit/edit'},
-					{text:'VIP客服',icon:'/static/logo.png',url:''},
-					{text:'意见反馈',icon:'/static/logo.png',url:'/pages/user/feed-back/feed-back'},
-					{text:'关于我们',icon:'/static/logo.png',url:'/pages/user/about/about'},
+					{text:'编辑资料',icon:'/static/edit-icon.png',url:'/pages/user/edit/edit'},
+					{text:'VIP客服',icon:'/static/kf.png',url:''},
+					{text:'意见反馈',icon:'/static/fk.png',url:'/pages/user/feed-back/feed-back'},
+					{text:'关于我们',icon:'/static/about.png',url:'/pages/user/about/about'},
 					]
 			}
 		},

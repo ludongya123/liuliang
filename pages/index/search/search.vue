@@ -3,10 +3,10 @@
 		<view class="search-bar flex-between">
 			<view class="search-left flex-start">
 				<image  src="/static/search.png"></image>
-				<input class="input" type="text" v-model="searchVal" placeholder="搜关键词找合作" placeholder-style="font-size:26rpx;color:#999"/>
-				<image src="/static/delete.png"></image>
+				<input class="input" placeholder="搜关键词找合作" placeholder-style="font-size:26rpx;color:#999" confirm-type="search" type="text" @confirm="toSearch" v-model="searchVal" />
+				<image src="/static/delete.png" style="padding:15rpx;margin-right: -10rpx;" v-show="isShowSearchlayer" @click="deleteVal"></image>
 			</view>
-			<text class="cancel">取消</text>
+			<text class="cancel" >取消</text>
 		</view>
 		<view class="history">
 			<view class="title flex-between">
@@ -32,16 +32,56 @@
 				</view> 
 			</view>
 		</view>
+		
+		<view class="search-layer" v-show="isShowSearchlayer">
+			<view class="search-item" v-for="item in 20">
+				<view class="search-res">
+					美妆1
+				</view>
+				<view class="xiline"> </view>
+			</view>
+		</view>
+		
+		
+		<v-order
+			:currentId="1"
+			@switchTypeOrder="changeTypeOrder"
+			@switchUpdateOrder="changeUpdateOrder"
+			@switchDayWorkOrder="changeDayWorkOrder"
+			@switchRegisteOrder="changeRegisteOrder"
+		></v-order>
 	</view>
 	
 </template>
 
 <script>
+	import Order from '@/components/Order/index.vue'
 	export default {
+		components:{
+			'v-order':Order
+		},
 		data() {
 			return {
-				
+				searchVal:'',
+				isShowSearchlayer:false
 			};
+		},
+		watch:{
+			searchVal(v){
+				if(v.trim() !== '') {
+					this.isShowSearchlayer = this.isShowSearchlayer ||  true
+				} else {
+					this.isShowSearchlayer = this.isShowSearchlayer && false
+				}
+			}
+		},
+		methods:{
+			deleteVal(){
+				this.searchVal = ''
+			},
+			toSearch(e){
+				console.log(e,'-------')
+			}
 		}
 	}
 </script>

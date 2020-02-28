@@ -1,10 +1,28 @@
+page{
+	padding-top: 140rpx;
+}
 .detail-cont{
-	padding-top: 20rpx;
+	
 	padding-bottom: 200rpx;
+}
+.gap{
+	width: 750rpx;
+	height: 20rpx;
+	background-color: #f4f4f4;
+	position: fixed;
+	z-index: 10;
+	top:0;
+	left: 0;
 }
 .title-bar{
 	padding: 30rpx 25rpx;
 	background: #fff;
+	height: 120rpx;
+	width:750rpx;  
+	position: fixed;
+	left:0; 
+	top:20rpx;
+	z-index: 10; 
 	.title-bar-img{
 		width:60rpx;
 		height: 60rpx;
@@ -168,10 +186,11 @@
 		background: #fff; 
 		&.fixed{
 			position: fixed;
-			width:100%; 
-			top:0;
+			width:100%;  
 			left:0;
+			top:140rpx;
 			z-index: 10;
+			// border-top:1rpx solid #f4f4f4;
 		}
 		text{ 
 			line-height:80rpx;
@@ -347,7 +366,7 @@
 						.sex-img{
 							width:100rpx;
 							height: 100rpx;
-							margin-top: 34rpx;
+							margin-top: 20rpx;
 						}
 						.sex-icon{
 							width: 50rpx;

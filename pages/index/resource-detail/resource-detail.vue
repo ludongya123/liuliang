@@ -1,8 +1,9 @@
 <template>
 	<view class="detail-cont">
+		<view class="gap"> </view>
 		<view class="title-bar flex-start">
-			<image class="title-bar-img" src="/static/logo.png" mode="aspectFill"></image>
-			<view class="title-bar-center">
+			<image class="title-bar-img" src="/static/logo.png" mode="aspectFill" @click="toOtherHomePage"></image>
+			<view class="title-bar-center"  @click="toOtherHomePage">
 				<view class="flex-start">
 					<text class="user-name">郑海星</text>
 					<text class="user-state">·刚刚活跃</text>
@@ -13,8 +14,8 @@
 				</view>
 			</view>
 			<button type="default" open-type="contact">关注</button>
-			<image class="share-icon" src="/static/share.png"></image>
-		</view>
+			<image class="share-icon" src="/static/share-black.png"></image>
+		</view> 
 		<!-- banner -->
 		<swiper class="swiper" circular :indicator-dots="true" indicator-color="rgba(255,255,255,0.5)" indicator-active-color="#fff"
 		 :autoplay="true" :interval="3000" :duration="1000">
@@ -69,7 +70,7 @@
 			</view>
 		</view>
 		<!-- 我需要，我提供，合作吧 -->
-		<view class="nav-bar flex-around" :class="isFixed?'fixed':''" id="nav-bar">
+		<view class="nav-bar flex-around" :class="isFixed?'fixed':''"  id="nav-bar">
 			<text :class="activeIdx==1?'active':''" @click="scrollPage(myNeedTop,1)">我需要</text>
 			<text :class="activeIdx==2?'active':''" @click="scrollPage(myProvideTop,2)">我提供</text>
 			<text :class="activeIdx==3?'active':''" @click="scrollPage(myCooperateTop,3)">合作吧</text>
@@ -382,13 +383,14 @@
 
 <script>
 	let APP = getApp()
-	let winWidth = APP.globalData.screenInfo.screenWidth
-	let h = (80 * winWidth) / 750  // 固定的顶部的不同分辨率的高度
+	let winWidth = APP.globalData.screenInfo.screenWidth 
+	let h = (220 * winWidth) / 750  // 固定的tabbar顶部的不同分辨率的高度
 	console.log(h)
 	export default {
 		data() {
 			return {
-				isFixed: false,
+				isFixed: false, // 导航栏的固定
+				titleFixed:false,// 顶部关注分享条的固定
 				navBarTop: 0,
 				myNeedTop: 0,
 				myProvideTop: 0,
@@ -405,7 +407,7 @@
 		onReady() {
 			const query = uni.createSelectorQuery().in(this);
 			query.select('#nav-bar').boundingClientRect(data => {
-				this.navBarTop = data.top
+				this.navBarTop = data.top 
 			}).exec();
 			query.select('#my-need').boundingClientRect(data => { 
 				this.myNeedTop = data.top
@@ -418,8 +420,8 @@
 			}).exec();
 		},
 		onPageScroll(e) {
-			console.log(e.scrollTop)
-			if (e.scrollTop >= this.navBarTop) {
+			console.log(e.scrollTop,this.navBarTop)
+			if (e.scrollTop >= this.navBarTop - (140 * winWidth) / 750) {
 				this.isFixed = this.isFixed || true 
 				if(e.scrollTop >= this.myCooperateTop-h){
 					this.activeIdx = 3
@@ -431,6 +433,7 @@
 			} else {
 				this.isFixed = this.isFixed && false
 			}
+			 
 		},
 		methods: {
 			scrollPage(top,index) { 
@@ -439,6 +442,11 @@
 				uni.pageScrollTo({
 					duration: 500,
 					scrollTop: top - h + 2
+				})
+			},
+			toOtherHomePage(){
+				uni.navigateTo({
+					url:'/pages/index/other-homepage/other-homepage'
 				})
 			}
 		}

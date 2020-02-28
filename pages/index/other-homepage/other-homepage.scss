@@ -1,0 +1,291 @@
+.other-cont{
+	padding-top:20rpx;
+}
+.share{
+		position: fixed; 
+		right:0;
+		top:52rpx;
+		height:60rpx;
+		padding: 0 14rpx 0 22rpx;
+		background:rgba(255,255,255,1);
+		box-shadow:0  0  10rpx rgba(0,0,0,0.16); 
+		border-radius:31rpx 0 0 31rpx;
+		z-index: 11;
+		background-color: #fff;
+		.share-icon{
+			width: 30rpx;
+			height: 30rpx;  
+		}
+		.share-text{ 
+			margin-left:10rpx;
+			font-size:30rpx; 
+			line-height: 60rpx;
+			color:rgba(255,29,18,1);  
+		}
+		&:after{
+			border: none;
+		}
+	}
+	
+	.title-bar{
+		.gap{ 
+			background-color: #f4f4f4;  
+			height: 20rpx; 
+		}
+		.content{
+			padding: 30rpx 25rpx;
+			background: #fff;
+			height: 120rpx;
+		}
+	
+	width:750rpx;  
+	position: fixed;
+	left:0; 
+	top:0rpx;
+	z-index: 10; 
+	border-bottom: 1rpx solid #eee;
+	.title-bar-img{
+		width:60rpx;
+		height: 60rpx;
+		border-radius: 50%;
+		margin-right: 12rpx;
+	}
+	.title-bar-center{
+		flex:1;
+		.user-name{ 
+			line-height:26rpx;
+			font-size:26rpx;  
+			color:#1a1a1a; 
+		}
+		.user-state{ 
+			font-size:20rpx; 
+			line-height:28rpx;
+			color:#FF1D12; 
+		}
+		.job{
+			margin-top:5rpx;
+			.sex-icon{
+				width: 24rpx;
+				height: 24rpx;
+				margin-right: 10rpx;
+			}
+			text{ 
+				font-size:20rpx; 
+				line-height:28rpx;
+				color:#7d7d7d; 
+			}
+		}
+	} 
+}
+.notice-bar{
+	background-color: #FFE6E5;
+	padding: 0 25rpx;
+	.gap{
+		height: 20rpx;
+		background-color: #f4f4f4;
+	}
+	.flex-start{
+		height: 80rpx;
+		image{
+			width: 32rpx;
+			height: 32rpx;
+			margin-right: 12rpx;
+		}
+		text{ 
+			font-size:26rpx; 
+			color:#FF1D12; 
+		}
+	}
+}
+.top{  
+		background-color: #fff;
+		padding-top:30rpx; 
+		.download-bar{
+			background:#F4DAC1;
+			border-radius:20rpx;
+			width:700rpx;
+			margin :0 0 20rpx 25rpx;
+			padding:24rpx;
+			image{
+				width: 20rpx;
+				height: 20rpx;
+				padding:10rpx;
+			}
+			button{
+				padding:0;
+				width:130rpx;
+				margin-right: 20rpx;
+				color:#E6BC96;
+				font-size: 26rpx;
+				line-height: 50rpx;
+				background-color: #191919; 
+				border-radius: 25rpx; 
+			}
+			text{ 
+				flex:1;
+				font-size:30rpx; 
+				font-weight:bold;
+				line-height:33rpx;
+				color:#000; 
+				opacity:0.87;
+			}
+		}
+		.head{
+			position: relative;
+			padding: 0 24rpx;
+			.user-img{
+				width:120rpx;
+				height: 120rpx;
+				border-radius: 50%;
+				margin-right: 20rpx;
+			}
+			.user-info{
+				.user-name{ 
+					font-size:40rpx; 
+					font-weight:bold;
+					line-height:56rpx;
+					color:rgba(46,46,46,1); 
+				}
+				.user-uid{ 
+					text{
+						font-size:26rpx;
+						line-height:37rpx;
+						margin-right: 20rpx;
+						color:#7D7D7D;
+					} 
+					.time{
+						color: #FF1D12;
+					}
+				}
+			}
+			
+		}
+		.user-setting{
+			padding-left:24rpx;
+			margin:10rpx 0 20rpx;
+			.flex-center{ 
+				padding:9rpx 13rpx 8rpx;
+				margin-right: 20rpx;
+				background-color: #F4F4F4;
+				border-radius: 10rpx;
+				font-size:24rpx; 
+				color:rgba(125,125,125,1); 
+			}
+			.user-setting-icon{
+				width:28rpx;
+				height: 28rpx;
+				margin-right: 5rpx;
+			}
+			text{
+				line-height:34rpx;
+			}
+		}
+		.user-tip{ 
+			font-size:26rpx;  
+			line-height:37rpx; 
+			padding:0 24rpx;
+			color:rgba(25,25,25,1); 
+		}
+		.user-amount{
+			padding: 30rpx 0 35rpx;
+			.flex-item{
+				text-align: center;
+				flex:1;
+				
+				.amount{ 
+					font-size:40rpx;
+					font-family:Bebas;
+					font-weight:bold;
+					line-height:53rpx;
+					color:#161719; 
+					&.ju{
+						color:#FF1D12;
+					} 
+				}
+				.text{ 
+					font-size:20rpx;  
+					line-height:28rpx;
+					color:rgba(125,125,125,1);
+					opacity:0.8;
+				}
+				
+			}
+		}
+	}
+	
+	.brand{
+		padding:28rpx 25rpx;
+		background-color: #fff;
+		margin:20rpx 0;
+		.brand-icon{
+			width: 84rpx;
+			height: 84rpx;
+			margin-right: 15rpx;
+		} 
+		.brand-info{
+			flex:1;
+			.brand-title{  
+				font-size:32rpx; 
+				font-weight:bold;
+				line-height:45rpx;
+				color:#191919; 
+			}
+			.brand-tag{ 
+				font-size:28rpx; 
+				line-height:40rpx;
+				color:#7d7d7d; 
+			}
+		}
+		
+	}
+	.ta-title{ 
+		line-height:100rpx;
+		background:#fff;
+		   
+		font-size:30rpx; 
+		font-weight:600; 
+		text-align: center;
+		position: relative;
+		&:after{
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			z-index: 1;
+			width: 750rpx;
+			height: 100rpx;
+			box-shadow:0 3rpx 10rpx rgba(178,178,178,0.2);;
+		}
+	}
+	
+	.res-group{ 
+		background-color: #fff; 
+	}
+	
+	.handel-area{
+		position: fixed;
+		z-index: 10;
+		width: 750rpx;
+		bottom: 40rpx;
+		padding: 0 30rpx;
+		.flex-center{
+			width: 320rpx;
+			height: 88rpx;
+			border-radius: 10rpx;
+			background-color: #FF1D12;
+			&.focus{
+				background-color: #FF860C;
+			}
+			image{
+				width: 34rpx;
+				height: 34rpx;
+				display: block;
+				margin-right: 12rpx;
+			}
+			text{ 
+				font-size:32rpx; 
+				font-weight:bold; 
+				color:#fff; 
+			}
+		}
+	}

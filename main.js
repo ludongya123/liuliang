@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import App from './App'
 
-import Toast from "@/components/Toast/index.vue"
+import Toast from "@/components/CumToast/index.vue"
 Vue.component("toast",Toast)
 
 import {ShowToast} from '@/common/js/utils.js'

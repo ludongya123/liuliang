@@ -52,6 +52,10 @@
             "path" : "pages/index/search/search",
             "style" : {}
         }
+        ,{
+            "path" : "pages/index/other-homepage/other-homepage",
+            "style" : {}
+        }
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
@@ -60,23 +64,23 @@
 		"backgroundColor": "#f4f4f4"
 	},
 	"tabBar": {
-		"color": "#7A7E83",
-		"selectedColor": "#3cc51f",
+		"color": "#9B9B9B",
+		"selectedColor": "#FF1D12",
 		"backgroundColor": "#ffffff",
 		"list": [{
 				"pagePath": "pages/index/index",
-				"iconPath": "static/logo.png",
-				"selectedIconPath": "static/logo.png",
+				"iconPath": "static/tab-title-2.png",
+				"selectedIconPath": "static/tab-title-1.png",
 				"text": "资源"
 			},
 			{
 				"pagePath": "pages/download/download",
-				"iconPath": "static/logo.png",
-				"selectedIconPath": "static/logo.png" 
+				"iconPath": "static/tab-title-5.png",
+				"selectedIconPath": "static/tab-title-5.png" 
 			}, {
 				"pagePath": "pages/user/user",
-				"iconPath": "static/logo.png",
-				"selectedIconPath": "static/logo.png",
+				"iconPath": "static/tab-title-4.png",
+				"selectedIconPath": "static/tab-title-3.png",
 				"text": "我的"
 			}
 		]
