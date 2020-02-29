@@ -21,10 +21,10 @@
 						</view>
 					</view> 
 				</view>
-				<view class="share flex-center">
+				<button class="share flex-center" type="default" open-type="share">
 					<image class="share-icon" src="/static/share.png" ></image>
 					<text class="share-text">分享</text>
-				</view>
+				</button>
 			</view>
 			<view class="user-setting flex-start">
 				<view class="flex-center">

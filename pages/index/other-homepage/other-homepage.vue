@@ -1,7 +1,7 @@
 <template>
 	<view class="other-cont">
 		<button class="share flex-center" open-type="share" v-show="!isSeal">
-			<image class="share-icon" src="/static/share.png" ></image>
+			<image class="share-icon" src="/static/share.png" mode="aspectFill"></image>
 			<text class="share-text">分享</text>
 		</button> 
 		<view class="title-bar"  v-show="isShowUserNar"> 
@@ -14,7 +14,7 @@
 						<text class="user-state">·刚刚活跃</text>
 					</view>
 					<view class="flex-start job">
-						<image class="sex-icon" src="/static/nan.png"></image>
+						<image class="sex-icon" src="/static/nan.png" mode="aspectFill"></image>
 						<text>网易背景音乐音乐总监</text>
 					</view>
 				</view> 
@@ -31,7 +31,7 @@
 		<view class="top"> 
 			<view class="head">
 				<view class="flex-start">
-					<image class="user-img" src="/static/logo-icon.png" ></image>
+					<image class="user-img" src="/static/logo-icon.png" mode="aspectFill"></image>
 					<view class="user-info">
 						<view class="user-name">
 							132****3669
@@ -45,19 +45,19 @@
 			</view>
 			<view class="user-setting flex-start">
 				<view class="flex-center">
-					<image class="user-setting-icon" src="/static/sex12.png" ></image>
+					<image class="user-setting-icon" src="/static/sex12.png" mode="aspectFill"></image>
 					<text>性别</text>
 				</view>
 				<view class=" flex-center">
-					<image class="user-setting-icon" src="/static/location-g.png" ></image>
+					<image class="user-setting-icon" src="/static/location-g.png" mode="aspectFill"></image>
 					<text>所在城市</text>
 				</view>
 				<view class="flex-center">
-					<image class="user-setting-icon" src="/static/brand.png" ></image>
+					<image class="user-setting-icon" src="/static/brand.png" mode="aspectFill"></image>
 					<text>我的品牌</text>
 				</view>
 				<view class="flex-center">
-					<image class="user-setting-icon" src="/static/job.png" ></image>
+					<image class="user-setting-icon" src="/static/job.png" mode="aspectFill"></image>
 					<text>身份头衔</text>
 				</view>
 			</view>
@@ -113,11 +113,11 @@
 		
 		<view class="handel-area flex-between">
 			<view class="flex-center focus">
-				<image src="/static/add-s.png"></image>
+				<image src="/static/add-s.png" mode="aspectFill"></image>
 				<text>关注TA</text>
 			</view>
 			<view class="flex-center">
-				<image src="/static/jl.png"></image>
+				<image src="/static/jl.png" mode="aspectFill"></image>
 				<text>交流</text>
 			</view>
 		</view>

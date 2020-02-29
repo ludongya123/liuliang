@@ -56,6 +56,10 @@
             "path" : "pages/index/other-homepage/other-homepage",
             "style" : {}
         }
+        ,{
+            "path" : "pages/index/fine-resource/fine-resource",
+            "style" : {}
+        }
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",

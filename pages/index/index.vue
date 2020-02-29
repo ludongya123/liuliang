@@ -1,28 +1,15 @@
 <template>
 	<view class="container">
-		<view class="top-bar" v-show="!isFilterFixed">
-			<view class="navbar-header flex-start">
-				<view class="all" :class="activeTag=='all'?'active':''" @click="chooseItem('all')">
-					全部
-				</view>
-				<view class="swiper">
-					<swiper @change="changeNavSwiper" display-multiple-items="3" :current="currentSwiper">
-						<swiper-item v-for="(item,index) in options" :key="index">
-							<view class="swiper-item" :class="activeTag=='nav'+index?'active':''" @click="chooseItem(index)">{{item}}</view>
-						</swiper-item>
-					</swiper>
-				</view>
-				<view class="more" :class="activeTag=='more'?'active':''" @click="chooseItem('more')">
-					更多
-				</view>
-				<image @click="toSearchPage" class="search-icon" src="/static/search-index.png"></image>
-			</view>
-			<view class="line" :style="{left: leftRpx+'rpx'}"></view>
+		<view class="top-bar flex-between"> 
+			<scroll-view class="scroll-nav" scroll-x scroll-with-animation :scroll-into-view="intoScrollBar">
+				<view class="scroll-item" :id="'scroll-item'+index" :class="index==navIndex?'active':''" v-for="(item,index) in tabbarList" :key='index' @click="clickNavBar(index)">{{item}}</view>
+			</scroll-view>
+			<image @click="toSearchPage" class="search-icon" src="/static/search-index.png"></image>
 		</view>
 
-		<view class="banner" v-show="!isFilterFixed">
+		<view class="banner" >
 			<swiper class="banner-swiper" circular indicator-color="rgba(255,255,255,0.5)" indicator-active-color="#fff"
-		 :autoplay="true" :indicator-dots="true" @change="changeBannerSwiper"
+		 :autoplay="true" :indicator-dots="true"
 			 :interval="5000" :duration="1000">
 				<swiper-item v-for="(item,indx) in banner" :key="indx">
 					<view class="swiper-item">
@@ -37,59 +24,33 @@
 				<text class="left-title">精选资源</text>
 				<text class="hot-icon">hot</text>
 			</view>
-			<view class="flex-start">
+			<view class="flex-start" @click="toFineRes">
 				<text class="more">更多</text>
 				<image class="arrow-r" src="/static/arrow-r.png"></image>
 			</view>
 		</view>
 		<!-- <cart-item mold="t"></cart-item> -->
 		
-		<view class="cooperate-title" id="cooperate-title" :class="isFilterFixed?'fixed':''">
-			合作信息
+		<view class="cooperate-title" > 
+			<view class="title"> 合作信息 </view> 
 		</view>
-		
+		<view class="gap" v-show="isFilterFixed"> </view>
 		<v-order  
+			id="filter"
+			top="110"
 			:currentId="id"
-			@showFilter="showFilter"
-			@filterFixed="setFilterBarFixed"
-			@filterFlow="setFilterBarFlow"
+			:fixed='isFilterFixed'   
 			@switchTypeOrder="changeTypeOrder"
 			@switchUpdateOrder="changeUpdateOrder"
 			@switchDayWorkOrder="changeDayWorkOrder"
 			@switchRegisteOrder="changeRegisteOrder"
 		></v-order>
-		<v-filter 
-		:isShow="isShowFilter"
-		@hideFilter="hideFilter"
-		></v-filter>
-		<cart-item @todetail="toResDetail"></cart-item>
-		
-		<!-- <swiper circular class="swiper-content" @change="changeContentSwiper" :current="currentSwiperContent">
-			<swiper-item>
-				<view class="swiper-item">全部</view>
-			</swiper-item>
-			<swiper-item>
-				<view class="swiper-item">1</view>
-			</swiper-item>
-			<swiper-item>
-				<view class="swiper-item">2</view>
-			</swiper-item>
-			<swiper-item>
-				<view class="swiper-item">3</view>
-			</swiper-item>
-			<swiper-item>
-				<view class="swiper-item">4</view>
-			</swiper-item>
-			<swiper-item>
-				<view class="swiper-item">5</view>
-			</swiper-item>
-			<swiper-item>
-				<view class="swiper-item">6</view>
-			</swiper-item>
 
-		</swiper> -->
+		<cart-item @todetail="toResDetail"></cart-item>
+
 
 		<toast></toast>
+		
 		<button type="primary" @click="hClick()">dianji</button> 
 	</view>
 </template>
@@ -98,38 +59,31 @@
 	import {
 		GetBanner
 	} from "@/api/index.js"
-	import CartItem from "@/components/CarItem/index.vue"
-	import Dot from "@/components/Dot/index.vue"
-	import Order from "@/components/Order/index.vue"
-	import Filter from '@/components/Filter/index.vue'
+	import CartItem from "@/components/CarItem/index.vue" 
+	import Order from "@/components/Order/index.vue" 
+	
 	let APP = getApp()
 	let winWidth = APP.globalData.screenInfo.screenWidth
-	let resourceTop = (110*winWidth) / 750
+	let scrollNavTop = (110*winWidth) / 750 // 顶部导航的高度
 	
 	export default {
 		components: {
-			'cart-item': CartItem,
-			'v-dot': Dot,
-			'v-order': Order,
-			'v-filter':Filter
+			'cart-item': CartItem, 
+			'v-order': Order 
 		},
 		data() {
-			return {
-				isShowFilter:false,
-				isFilterFixed:false, // 筛选条是否固定
+			return {  
+				navIndex:0, // 当前的scrollnav下标
+				intoScrollBar:'scroll-item0',// 当前滚动到哪个位置
 				banner: ['1', 2, 3, 4],
+				isFilterFixed:false, // 筛选条是否固定
 				// typeOrder: 0, //类型排序 默认综合
 				// typeOrderList: ['综合', '线上', '线下', '跨界'], //排序方式
 				// updateAndActiveOrder: 0, // 默认最新
-				// updateAndActiveOrder: ['最新', '活跃'], // 最新和活跃的排序
-				currentBannerSwpier: 0,
-				activeTag: 'all',
-				options: ['我的1', '资源2', '大厅3', '我的4', '资源5', '资源6'],
-				leftRpx: 42,
-				currentSwiper: 0,
-				id:'',
-				currentSwiperContent: 0,
-				allResourceTop:0// 合作资源距离顶部的高度
+				// updateAndActiveOrder: ['最新', '活跃'], // 最新和活跃的排序 
+				tabbarList: ['全部','我的1', '资源2', '大厅3', '我的4', '资源5', '资源6','资源7','资源8','资源9'],
+				id:'' ,
+				filterTop:0
 			}
 		},
 		
@@ -138,77 +92,25 @@
 		},
 		onReady() {
 			const query = uni.createSelectorQuery().in(this);
-			query.select('#res-group').boundingClientRect(data => {
-				this.allResourceTop = data.top 
+			query.select('#filter').boundingClientRect(data => {
+				this.filterTop = data.top 
+				console.log(this.filterTop)
 			}).exec();
 		},
 		onPageScroll(e) {
-			if(e.scrollTop >= this.allResourceTop - resourceTop) {
-				
+			if(e.scrollTop >= this.filterTop - scrollNavTop) {
+				this.isFilterFixed = true
 			} else {
-				
+				this.isFilterFixed = false
 			}
 		},
 		methods: {
-			chooseItem(n) {
-				let navLen = this.options.length
-				if (n == navLen) {
-					return
-				}
-				this.currentSwiperContent = n + 1
-				if (typeof n === 'number' && navLen - n - 1 <= 3) {
-					this.currentSwiper = n - 1 > navLen - 3 ? navLen - 3 : n - 1
-				}
-				if (typeof n === 'number') {
-					this.activeTag = 'nav' + n
-				} else {
-					this.activeTag = n
-				}
-				switch (n) {
-					case 0:
-						this.leftRpx = 147;
-						this.currentSwiper = 0;
-						break;
-					case 1:
-						this.currentSwiper = 0;
-						this.leftRpx = 267;
-						break;
-					case navLen - 1:
-						this.leftRpx = 387;
-						break;
-					case 'more':
-						this.leftRpx = 502;
-						break;
-					case 'all':
-						this.leftRpx = 42;
-						break;
-					default:
-						this.leftRpx = 267;
-				}
+			clickNavBar(idx){
+				console.log(idx)
+				this.intoScrollBar = idx > 0 ? 'scroll-item' + (idx - 1) : 'scroll-item0'
+				this.navIndex = idx
 			},
-			// 滑动导航的操作
-			changeNavSwiper(e) {
-				this.currentSwiper = e.detail.current
-				if (this.leftRpx > 42 && this.leftRpx < 502) {
-					let nIndex = (this.leftRpx - 147) / 120
-					// 当前所在的下标
-					let currentActive = this.currentSwiper + nIndex //
-					console.log(currentActive)
-					this.currentSwiperContent = currentActive + 1
-					this.activeTag = 'nav' + currentActive
-				}
-			},
-			// 滑动内容swiper
-			changeContentSwiper(e) {
-				let current = e.detail.current
-				this.currentSwiperContent = current
-				this.id = 10
-				if (current != 0) {
-					this.chooseItem(current - 1)
-				} else {
-					this.chooseItem('all')
-				}
-			},
+		
 			/**
 			 * 显示筛选弹层
 			 */
@@ -228,11 +130,7 @@
 			// 筛选条不固定
 			setFilterBarFlow(){
 				this.isFilterFixed = false
-			},
-			// 滑动banner
-			changeBannerSwiper(e) {
-				this.currentBannerSwpier = e.detail.current
-			},
+			}, 
 			/**
 			 * 综合，线上，线下，跨界的筛选
 			 */
@@ -256,6 +154,12 @@
 				uni.navigateTo({
 					url:'/pages/index/search/search'
 				})
+			},
+			//跳转到精选资源
+			toFineRes(){
+				uni.navigateTo({
+					url: '/pages/index/fine-resource/fine-resource' 
+				});
 			},
 			hClick() {
 				uni.pageScrollTo({

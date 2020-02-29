@@ -80,6 +80,9 @@ page{
 					line-height: 60rpx;
 					color:rgba(255,29,18,1);  
 				}
+				&:after{
+					border: none;
+				}
 			}
 		}
 		.user-setting{

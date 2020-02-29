@@ -185,12 +185,13 @@ page{
 		height: 80rpx;
 		background: #fff; 
 		&.fixed{
+			box-shadow:0px 3rpx 10rpx rgba(178,178,178,0.2);
 			position: fixed;
 			width:100%;  
 			left:0;
-			top:140rpx;
+			top:138rpx;
 			z-index: 10;
-			// border-top:1rpx solid #f4f4f4;
+			border-top:1rpx solid #f4f4f4;
 		}
 		text{ 
 			line-height:80rpx;

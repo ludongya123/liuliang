@@ -5,45 +5,72 @@
 	width: 100%;
 	top: 0;
 	left: 0;
-	z-index: 10;  
-	padding-left: 17rpx;
-	padding-right: 16rpx;
-	.scroll-nav{
-		width: 500rpx;
-		white-space: nowrap;
-		.scroll-item{
-			height: 90rpx;
-			display: inline-block;
-			padding:28rpx 20rpx;
-			font-size: 30rpx;
-			color: #000;
-			font-weight: 600;
-			position: relative;
-			&.active{
-				color: #FF1D12;
-				font-weight: 600;
-				font-size: 36rpx;
-				font-weight: 700;
-				&:after{
-					position: absolute;
-					content: "";
-					width:46rpx;
-					height: 6rpx;
-					background-color:#FF1D12;
-					bottom: 15rpx;
-					left:50%;
-					margin-left: -23rpx;
-				}
-			}
-		}
+	z-index: 10; 
+
+	.line {
+		position: absolute;
+		width:50rpx;
+		height: 1rpx;
+		border-top: 6rpx solid red;
+		bottom: 0;
+		transition: left 0.2s linear;
+		bottom:12rpx;
 	}
 	.search-icon{
 		width: 28rpx;
-		height: 28rpx; 
+		height: 28rpx;
+		margin-left: 100rpx;
 		padding:10rpx;
 	}
 }
 
+.navbar-header {
+	font-size: 30rpx;
+	padding-right: 25rpx;
+	padding-left: 17rpx;
+	.all,
+	.more {
+		line-height: 42rpx;
+		padding: 24rpx 0;
+		width: 100rpx;
+		text-align: center;
+		color: #333;
+		&.active{
+			font-size: 36rpx;
+			font-weight: 600;
+			color:#FF1D12;
+		}
+	}
+
+	.swiper {
+		width: 360rpx; 
+		color: #333;
+		swiper{
+			height: 70rpx;
+		}
+		.swiper-item{
+			line-height: 70rpx;
+			width: 120rpx;
+			text-align: center;
+			&.active{
+				font-size: 36rpx;
+				font-weight: bold;
+				color:#FF1D12;
+			}
+		}
+		/* .scroll-view {
+			white-space: nowrap;
+
+			.scroll-item {
+				line-height: 42rpx;
+				width: 120rpx;
+				display: inline-block;
+				text-align: center;
+				padding: 24rpx 0;
+			}
+		} */
+	}
+}
 
 .banner{
 	padding: 94rpx 25rpx 40rpx; 
@@ -101,32 +128,19 @@
 	}
 }
 .cooperate-title{ 
-	padding-top:20rpx;
-	background-color: #f4f4f4;
-	.title{
-		height:74rpx;
-		padding:22rpx 25rpx 2rpx; 
-		background-color: #fff;
-		font-size:36rpx; 
-		line-height: 50rpx;
-		font-weight:bold; 
-		color:#1e1e1e;
-	}
+	height:74rpx;
+	padding:22rpx 25rpx 2rpx;
+	margin-top: 20rpx;
+	background-color: #fff;
+	font-size:36rpx; 
+	line-height: 50rpx;
+	font-weight:bold; 
+	color:#1e1e1e;
 	&.fixed{
 		width: 750rpx;
 		position: fixed;
-		top:110rpx;
+		top:0;
 		left:0;
-		z-index: 10;
+		z-index: 20;
 	}
 } 
-
-.gap{
-	width: 750rpx;
-	height: 20rpx;
-	position: fixed;
-	background-color: #f4f4f4;
-	top:90rpx;
-	left:0;
-	z-index: 20;
-}
