@@ -63,7 +63,7 @@
 				</view>
 			</view>
 			<view class="handle-btn flex-around">
-				<view class="close" @click="isShowFilter = false">
+				<view class="close" @click="hideModal">
 					<image class="close-icon" src="/static/close.png"></image>
 				</view>
 				<text class="btn reset">重置</text>
@@ -73,7 +73,7 @@
 		
 		<view class="picker-view-wrapper" :class="isShowPickerView?'show':''">
 			<view class="flex-between handel">
-				<text class="cancel" @click="isShowPickerView=false">取消</text>
+				<text class="cancel" @click="hideModal">取消</text>
 				<text class="confirm" @click="confirmOrderBy">确认</text>
 			</view>
 			<picker-view v-show="orderByType==1" @change="changePickerView($event,1)" :value="chooseValue1" class="picker-view" indicator-style="height: 40px; " style="width: 100%; height: 400rpx;">
@@ -132,6 +132,9 @@
 			showChooseOrderBy(num){
 				this.isShowPickerView = true
 				this.orderByType = num
+				uni.hideTabBar({
+					
+				})
 			},
 			/**
 			 * picker改变
@@ -148,7 +151,10 @@
 			 */
 			showFilter() {
 				this.isShowFilter = true
-			},
+				uni.hideTabBar({
+					
+				})
+			}, 
 			/**
 			 * 隐藏弹出层，包括筛选层，综合选择下拉菜单，最新选择下拉菜单
 			 */
@@ -159,6 +165,9 @@
 				if(this.isShowPickerView) {
 					this.isShowPickerView = false
 				}
+				uni.showTabBar({
+					
+				})
 			},
 			/**
 			 * 确认排序
@@ -404,10 +413,12 @@
 	.picker-view-wrapper{
 		position: fixed;
 		width: 750rpx;
-		 bottom: -500rpx;
+		 bottom: -550rpx;
 		 left: 0;
 		 background-color: #fff;
 		 z-index: 30;
+		 border-radius: 20rpx 20rpx 0 0;
+		 overflow: hidden;
 		 transition: bottom 0.3s ease-in-out;
 		 &.show{
 			 bottom: 0;

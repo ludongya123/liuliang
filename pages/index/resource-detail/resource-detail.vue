@@ -7,6 +7,7 @@
 				<view class="flex-start">
 					<text class="user-name">郑海星</text>
 					<text class="user-state">·刚刚活跃</text>
+					<image src="/static/svip.png" mode="aspectFill" style="width: 60rpx;height: 19rpx;margin-left: 10rpx;"></image>
 				</view>
 				<view class="flex-start job">
 					<image class="sex-icon" src="/static/nan.png"></image>

@@ -29,7 +29,7 @@
 				<image class="arrow-r" src="/static/arrow-r.png"></image>
 			</view>
 		</view>
-		<!-- <cart-item mold="t"></cart-item> -->
+		<cart-item mode="t" @todetail="toResDetail"></cart-item>
 		
 		<view class="cooperate-title" > 
 			<view class="title"> 合作信息 </view> 

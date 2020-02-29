@@ -2,29 +2,30 @@
 	<view>
 		<view class="wrapper" v-for=" item in 5 " :key="item"  @click="toDetail">
 
-			<view class="title" :style="{height:mold==''?'auto':'130rpx'}">
-				<view class="title-content flex-start" :style="{padding:mold==''?'0':'22rpx  11rpx 0'}">
+			<view class="title" :style="{height:mode==''?'auto':'130rpx'}">
+				<view class="title-content flex-start" :style="{padding:mode==''?'0':'22rpx  11rpx 0'}">
 					<image class="title-pic" src="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=3273007653,326282463&fm=15&gp=0.jpg"
 					></image>
 
 					<view class="title-name">
 						<view class="flex-start">
-							<text class="user-name" :style="{color:mold==''?'#191919':'#FFf'}">郑海星</text>
-							<image class="user-icon" src="/static/card-vip.png" mode="aspectFill"></image>
+							<text class="user-name" :style="{color:mode==''?'#191919':'#FFf'}">郑海星</text>
+							<image v-if="mode!=''" src="/static/vip.png" style="width: 65rpx;height: 30rpx;margin:0 10rpx" mode="aspectFill"></image>
+							<image v-if="mode==''" src="/static/svip.png" style="width: 99rpx;height: 31rpx;margin:0 10rpx" mode="aspectFill"></image>
 							<text class="user-tag">官方推荐</text>
 						</view>
-						<view class="info" :style="{color:mold==''?'#7D7D7D':'#FFf'}">
+						<view class="info" :style="{color:mode==''?'#7D7D7D':'#FFf'}">
 							网易云音乐商务总监·10分钟前活跃
 						</view>
 					</view>
 
 					<view class="title-right">
-						<view class="amount" :style="{color:mold==''?'#FF1D12':'#FFf'}">1.4/3.2万 </view>
-						<view class="tip" :style="{color:mold==''?'#7D7D7D':'#fff'}"> 日活/注册 </view>
+						<view class="amount" :style="{color:mode==''?'#FF1D12':'#FFf'}">1.4/3.2万 </view>
+						<view class="tip" :style="{color:mode==''?'#7D7D7D':'#fff'}"> 日活/注册 </view>
 					</view>
 
 				</view>
-				<image v-if="mold!=''" class="title-bg" src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=2479437964,3999723968&fm=26&gp=0.jpg"
+				<image v-if="mode!=''" class="title-bg" src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=2479437964,3999723968&fm=26&gp=0.jpg"
 				 mode="aspectFill"></image>
 			</view>
 			<view class="tags flex-start">
@@ -74,7 +75,7 @@
 <script>
 	export default {
 		props: {
-			mold: {
+			mode: {
 				type: String,
 				default: ''
 			}
@@ -129,17 +130,18 @@
 						font-weight: bold;
 					}
 
-					.user-icon {
-						width: 50rpx;
-						height: 50rpx;
-					}
+					// .user-icon {
+					// 	width: 50rpx;
+					// 	height: 50rpx;
+					// }
 
 					.user-tag {
-						padding: 2rpx 5rpx;
+						padding: 2rpx 6rpx;
 						color: #fff;
 						background: #FF6A6A;
 						font-size: 20rpx;
 						line-height: 28rpx;
+						border-radius: 6rpx;
 					}
 
 					.info {
