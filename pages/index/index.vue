@@ -46,10 +46,11 @@
 			@switchRegisteOrder="changeRegisteOrder"
 		></v-order>
 
-		<cart-item @todetail="toResDetail"></cart-item>
+		<cart-item @todetail="toResDetail" ></cart-item>
 
 
 		<toast></toast>
+		<v-guide page="index" :isShowGuide="showGuide" @hideGuide="hideGuide"></v-guide>
 		
 		<button type="primary" @click="hClick()">dianji</button> 
 	</view>
@@ -59,8 +60,11 @@
 	import {
 		GetBanner
 	} from "@/api/index.js"
+	import {isHaveShowGuide} from "@/common/js/utils.js"
+	
 	import CartItem from "@/components/CarItem/index.vue" 
-	import Order from "@/components/Order/index.vue" 
+	import Order from "@/components/Order/index.vue"  
+	import Guide from '@/components/Guide/index.vue'
 	
 	let APP = getApp()
 	let winWidth = APP.globalData.screenInfo.screenWidth
@@ -69,10 +73,12 @@
 	export default {
 		components: {
 			'cart-item': CartItem, 
-			'v-order': Order 
+			'v-order': Order ,
+			'v-guide':Guide
 		},
 		data() {
-			return {  
+			return {   
+				showGuide:false,
 				navIndex:0, // 当前的scrollnav下标
 				intoScrollBar:'scroll-item0',// 当前滚动到哪个位置
 				banner: ['1', 2, 3, 4],
@@ -87,8 +93,11 @@
 			}
 		},
 		
-		onLoad() {
-
+		onLoad() { 
+			this.showGuide = isHaveShowGuide('index') ? false : true
+			if(!isHaveShowGuide('index')) {
+				uni.hideTabBar({ })
+			}
 		},
 		onReady() {
 			const query = uni.createSelectorQuery().in(this);
@@ -105,6 +114,12 @@
 			}
 		},
 		methods: {
+			// 关闭引导图
+			hideGuide(){
+				uni.setStorageSync('isShowGuideIndex',true)
+				this.showGuide = false
+				uni.showTabBar({ })
+			},
 			clickNavBar(idx){
 				console.log(idx)
 				this.intoScrollBar = idx > 0 ? 'scroll-item' + (idx - 1) : 'scroll-item0'

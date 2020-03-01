@@ -94,13 +94,22 @@
 		<view class="tip">
 			VIP客服在线时间：工作日9:30至18:30
 		</view>
+		<v-guide page="user" :isShowGuide="showGuide" @hideGuide="hideGuide"></v-guide>
 	</view>
 </template>
 
 <script>
+	import {isHaveShowGuide} from "@/common/js/utils.js"
+	
+	import Guide from '@/components/Guide/index.vue'
+	
 	export default {
+		components:{
+			'v-guide':Guide
+		},
 		data() {
 			return {
+				showGuide:false,
 				showDownLoad:true,
 				menu:[
 					{text:'编辑资料',icon:'/static/edit-icon.png',url:'/pages/user/edit/edit'},
@@ -110,7 +119,18 @@
 					]
 			}
 		},
+		onLoad() {
+			this.showGuide = isHaveShowGuide('user') ? false : true
+			if(!isHaveShowGuide('user')) {
+				uni.hideTabBar({ })
+			}
+		},
 		methods: {
+			hideGuide(){
+				uni.setStorageSync('isShowGuideUser',true)
+				this.showGuide = false
+				uni.showTabBar({ })
+			},
 			hideDownLoad(){
 				this.showDownLoad = false
 			},

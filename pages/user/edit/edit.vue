@@ -51,13 +51,21 @@
 		},
 		data() {
 			return {
-				isAuthUserInfo: true, // 是否授权用户信息
+				isAuthUserInfo: false, // 是否授权用户信息
 				isShowActionsheet: false, // 是否显示性别选择框
 				gender: -1, // 性别默认
 				nickname: '',
 				city: '',
 				instruction:''
 			};
+		},
+		onShow() {
+			let that = this
+			uni.getSetting({
+				success(res) {
+					that.isAuthUserInfo = res['scope.userInfo']
+				}
+			})
 		},
 		methods: {
 			// 显示性别选择弹窗
