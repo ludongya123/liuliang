@@ -108,7 +108,7 @@
 			TA的资源（10）
 		</view>
 		<view class="res-group" id="res-group">
-			<v-cart></v-cart>
+			<v-cart :len="5"></v-cart>
 		</view>
 		
 		<view class="handel-area flex-between">

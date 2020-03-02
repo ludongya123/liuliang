@@ -4,7 +4,7 @@
 			正在浏览 全部精选资源
 		</view>
 		<v-filter :fixed="true" top="52"></v-filter>
-		<v-card></v-card>
+		<v-card mode="t" :len="10"></v-card>
 	</view>
 </template>
 

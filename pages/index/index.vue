@@ -29,7 +29,7 @@
 				<image class="arrow-r" src="/static/arrow-r.png"></image>
 			</view>
 		</view>
-		<cart-item mode="t" @todetail="toResDetail"></cart-item>
+		<cart-item mode="t" @todetail="toResDetail" :len="1"></cart-item>
 		
 		<view class="cooperate-title" > 
 			<view class="title"> 合作信息 </view> 
@@ -46,13 +46,13 @@
 			@switchRegisteOrder="changeRegisteOrder"
 		></v-order>
 
-		<cart-item @todetail="toResDetail" ></cart-item>
+		<cart-item @todetail="toResDetail" :len="10"></cart-item>
 
 
 		<toast></toast>
 		<v-guide page="index" :isShowGuide="showGuide" @hideGuide="hideGuide"></v-guide>
-		
-		<button type="primary" @click="hClick()">dianji</button> 
+		<v-collect></v-collect>
+		<!-- <button type="primary" @click="hClick()">dianji</button> -->
 	</view>
 </template>
 
@@ -62,6 +62,7 @@
 	} from "@/api/index.js"
 	import {isHaveShowGuide} from "@/common/js/utils.js"
 	
+	import CollectTip from '@/components/CollectTip/index.vue'
 	import CartItem from "@/components/CarItem/index.vue" 
 	import Order from "@/components/Order/index.vue"  
 	import Guide from '@/components/Guide/index.vue'
@@ -74,7 +75,8 @@
 		components: {
 			'cart-item': CartItem, 
 			'v-order': Order ,
-			'v-guide':Guide
+			'v-guide':Guide,
+			'v-collect':CollectTip
 		},
 		data() {
 			return {   

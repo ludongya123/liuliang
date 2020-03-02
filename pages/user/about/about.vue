@@ -1,6 +1,6 @@
 <template>
 	<view class="about-cont">
-		<image class="com-icon" src="/static/logo.png"></image>
+		<image class="com-icon" src="/static/com-logo.png"></image>
 		<view class="com-name">
 			BD联盟
 		</view>

@@ -1,6 +1,6 @@
 <template>
 	<view>
-		<view class="wrapper" v-for=" item in 5 " :key="item"  @click="toDetail">
+		<view class="wrapper" v-for=" item in len " :key="item"  @click="toDetail">
 
 			<view class="title" :style="{height:mode==''?'auto':'130rpx'}">
 				<view class="title-content flex-start" :style="{padding:mode==''?'0':'22rpx  11rpx 0'}">
@@ -74,10 +74,14 @@
 
 <script>
 	export default {
-		props: {
-			mode: {
-				type: String,
-				default: ''
+		props:{
+			mode:{
+				type:String,
+				default:''
+			},
+			len:{
+				type:Number || String,
+				default:0
 			}
 		},
 		data() {

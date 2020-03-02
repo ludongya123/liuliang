@@ -7,63 +7,89 @@
 			}
 		}, {
 			"path": "pages/user/user",
-			"style": {}
+			"style": {
+				"navigationBarTitleText":"我的主页"
+			}
 		}, {
 			"path": "pages/download/download",
 			"style": {}
 		}
 	    ,{
             "path" : "pages/user/edit/edit",
-            "style" : {}
+            "style" : {
+				"navigationBarTitleText":"编辑资料"
+			}
         }
         ,{
             "path" : "pages/user/edit-nickname/edit-nickname",
-            "style" : {}
+            "style" : {
+				"navigationBarTitleText":"修改昵称"
+			}
         }
         ,{
             "path" : "pages/user/self-intru/self-intru",
-            "style" : {}
+            "style" : {
+				"navigationBarTitleText":"个性签名"
+			}
         }
         ,{
             "path" : "pages/user/feed-back/feed-back",
-            "style" : {}
+            "style" : {
+				"navigationBarTitleText":"意见反馈"
+			}
         }
         ,{
             "path" : "pages/user/feed-status/feed-status",
-            "style" : {}
+            "style" : {
+				"navigationBarTitleText":"提交状态"
+			}
         }
         ,{
             "path" : "pages/user/select-address/select-address",
-            "style" : {}
+            "style" : {
+				"navigationBarTitleText":"选择城市"
+			}
         }
         ,{
             "path" : "pages/user/about/about",
-            "style" : {}
+            "style" : {
+				"navigationBarTitleText":"关于"
+			}
         }
         ,{
             "path" : "pages/index/resource-detail/resource-detail",
-            "style" : {}
+            "style" : {
+				"navigationBarTitleText":"资源详情"
+			}
         }
         ,{
             "path" : "pages/index/company-detail/company-detail",
-            "style" : {}
+            "style" : {
+				"navigationBarTitleText":"公司详情"
+			}
         }
         ,{
             "path" : "pages/index/search/search",
-            "style" : {}
+            "style" : {
+				"navigationBarTitleText":"资源搜索"
+			}
         }
         ,{
             "path" : "pages/index/other-homepage/other-homepage",
-            "style" : {}
+            "style" : {
+				"navigationBarTitleText":"TA的主页"
+			}
         }
         ,{
             "path" : "pages/index/fine-resource/fine-resource",
-            "style" : {}
+            "style" : {
+				"navigationBarTitleText":"精选资源"
+			}
         }
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
-		"navigationBarTitleText": "流量宝",
+		"navigationBarTitleText": "BD联盟",
 		"navigationBarBackgroundColor": "#ffffff",
 		"backgroundColor": "#f4f4f4"
 	},

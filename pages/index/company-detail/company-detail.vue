@@ -31,14 +31,17 @@
 			</view>
 		</view>
 		<view class="nav-bar flex-center" :class="isNavFixed?'fixed':''">
-			<view class="left">
-				<text class="active">资源（6）</text>
+			<view class="left" @click="switchActiveNav(1)">
+				<text :class="active==1?'active':''">资源（6）</text>
 			</view>
-			<view class="right">
-				<text>成员（5）</text> 
+			<view class="right" @click="switchActiveNav(2)">
+				<text :class="active==2?'active':''">成员（5）</text> 
 			</view>
 		</view>
-		<view class="friend-list">
+		<view class="res-group" v-show="active==1">
+			<v-card :len="10"></v-card>
+		</view>
+		<view class="friend-list" v-show="active==2">
 			<view class="list-item flex-start" v-for="item in 10">
 				<image class="list-item-img" src="/static/logo.png" mode="aspectFill"></image>
 				<view class="list-item-right">
@@ -70,11 +73,18 @@
 	let APP = getApp()
 	let winWidth = APP.globalData.screenInfo.screenWidth
 	let tabHeight = (460*winWidth) / 750 // tabbar距离顶部的距离
+	
+	import CardItem from '@/components/CarItem/index.vue'
+	
 	export default {
+		components:{
+			'v-card':CardItem
+		},
 		data() {
 			return {
 				isshowTip:false,
-				isNavFixed:false // tabbar是否吸顶
+				isNavFixed:false ,// tabbar是否吸顶
+				active:1
 			};
 		},
 		onPageScroll(e) {
@@ -93,6 +103,9 @@
 				setTimeout(()=>{
 					this.isshowTip = false
 				},3000)
+			},
+			switchActiveNav(n){
+				this.active = n
 			}
 		}
 	}
