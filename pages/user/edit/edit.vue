@@ -63,7 +63,8 @@
 			let that = this
 			uni.getSetting({
 				success(res) {
-					that.isAuthUserInfo = res['scope.userInfo']
+					console.log(res)
+					that.isAuthUserInfo = res.authSetting['scope.userInfo'] || false
 				}
 			})
 		},
